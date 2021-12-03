@@ -18,9 +18,9 @@ bool compareByWidth(const portal &a, const portal &b)
     return a.width < b.width;
 }
 
-// Define max N and global variables to store input and union-find.
+// Define max N and some global variables to store input and union-find.
 #define N 1000005
-int n, m, parent[N], size[N];
+int n, m, parent[N], size[N], limit;
 vector<int> mortys;
 vector<portal> portals;
 
@@ -31,12 +31,21 @@ void make_set(int v) {
 }
 
 // Perform the find operation and return the parent of selected set
-// (using path compression).
+// (using path compression). Iterative implementation is commented out.
+// int find_set(int v) {
+//     while (parent[v] != v) {
+//         parent[v] = parent[parent[v]];
+//         v = parent[v];
+//     }
+//     return v;
+// }
 int find_set(int v) {
     if (v == parent[v]) {
         return v;
     }
-    return parent[v] = find_set(parent[v]);
+    else {
+        return parent[v] = find_set(parent[v]);
+    }
 }
 
 // Perform the union operation (using union by rank).
@@ -54,22 +63,23 @@ void union_sets(int a, int b) {
     }
 }
 
-// Reset all sets to singular ones.
+// Reset all sets and limit to largest width portal index.
 void reset_sets() {
     for(int i = 0 ; i < n; i++) {
         make_set(i + 1);
     }
+    limit = m - 1;
 }
 
 // Function to perform union-find algorithm on portals
 // and search if all Mortys can return to their home universe
 // using portals that have at least x width.
 bool mortify(int x) {
-    // Unify all universes that are connected through a portal
-    // by iterating from the largest width up until x width
-    // (from the end of portals vector towards the beginning,
-    // since it is sorted from smallest to largest width).
-    for(int i = m - 1; i >= 0; i--) {
+    // Unify all universes that are connected through a portal by
+    // iterating from limit width until x width (either from the end
+    // of portals vector or continue from limit index towards the
+    // beginning, since it is sorted from smallest to largest width).
+    for(int i = limit; i >= 0; i--) {
         portal current = portals[i];
 
         // If current.width is greater than or equal to x then we need
@@ -79,8 +89,11 @@ bool mortify(int x) {
         }
         // The first time that current.width isn't greater than or equal
         // to x is when it is smaller than x, so we need to stop considering
-        // those portals to our solution.
+        // those portals to our solution and update our limit index to our
+        // current index, since that's the first portal we need to check
+        // on our next search.
         else {
+            limit = i;
             break;
         }
     }
@@ -105,7 +118,7 @@ bool mortify(int x) {
 
     // If x width succeeds, we will try to remove some of the smaller width 
     // portals on our next search and check if the solution still holds. 
-    // So we need to reset the union-find.
+    // So we need to reset the union-find and limit index.
     reset_sets();
     return true;
 }
