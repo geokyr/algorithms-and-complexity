@@ -5,6 +5,6 @@ for i in range(1, 34):
 
     print("Testing case:", i)
     print("Output should be:", f.read())
-    os.system('time ./1 < teleports/input' + str(i) + '.txt')
+    os.system('time ./1Βonus < teleports/input' + str(i) + '.txt')
     print("\n")
     f.close()
