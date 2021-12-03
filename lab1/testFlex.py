@@ -5,7 +5,7 @@ for n in range(0,34):
     outputFile = f'teleports/output{n}.txt'
     f = open(outputFile)
     output = f.read()
-    command = "./1 < " + inputFile
+    command = "./1Bonus < " + inputFile
     process = Popen(command, shell=True, stdout=PIPE, stderr=PIPE)
     producedOutput, err = process.communicate()
 
