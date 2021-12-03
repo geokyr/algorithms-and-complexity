@@ -15,8 +15,10 @@ bool compareByWidth(const portal &a, const portal &b)
     return a.width < b.width;
 }
 
-#define N 1000000
-int parent[N], size[N];
+#define N 1000005
+int n, m, parent[N], size[N];
+vector<int> mortys;
+vector<portal> portals;
 
 void make_set(int v) {
     parent[v] = v;
@@ -44,7 +46,47 @@ void union_sets(int a, int b) {
     }
 }
 
+void reset_sets() {
+    for(int i = 0 ; i < n + 1; i++) {
+        parent[i] = 0;
+        size[i] = 0;
+    }
+}
+
+void initialize_sets() {
+    for(int i = 0; i < n; i++) {
+        make_set(i + 1);
+    }
+}
+
 bool mortify(int x) {
+    for(int i = m - 1; i >= 0; i--) {
+        portal current = portals[i];
+
+        if(x < current.width) {
+            union_sets(current.first, current.second);
+        }
+        // else if(x == current.width) {
+        else {
+            union_sets(current.first, current.second);
+            break;
+        }
+    }
+
+    for(int i = 0; i < n; i++) {
+        if((i + 1) != mortys[i]) {
+            if(find_set(i + 1) != find_set(mortys[i])) {
+                // we need to keep union-find and add portals
+                // with smaller width on next call
+                reset_sets();
+                initialize_sets();
+                return false;
+            }
+        }
+    }
+
+    reset_sets();
+    initialize_sets();
     return true;
 }
 
@@ -52,7 +94,8 @@ int binary_search(int low, int high) {
     while(low < high) {
         // int mid = low + (high - low) / 2;
         int mid = low + (high - low + 1) / 2;
-        if(mortify(mid)) {
+
+        if(mortify(portals[mid].width)) {
             low = mid;
         }
         else {
@@ -62,13 +105,10 @@ int binary_search(int low, int high) {
     return low;
 }
 
-vector<int> mortys;
-vector<portal> portals;               
-
 int main() {
     ios_base::sync_with_stdio(false);
 
-    int n, m, t, temp[3];
+    int t, temp[3];
     cin >> n >> m;
 
     for(int i = 0; i < n; i++) {
@@ -96,7 +136,10 @@ int main() {
     //     cout << portals[i].first << " " << portals[i].second << " "  << portals[i].width << endl;
     // }
 
-    cout << binary_search(0, m - 1) << endl;
+    reset_sets();
+    initialize_sets();
+
+    cout << portals[binary_search(0, m - 1)].width << endl;
 
     return 0;
 }
