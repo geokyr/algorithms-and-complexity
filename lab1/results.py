@@ -1,11 +1,18 @@
 from subprocess import PIPE, Popen
+import sys
+
+ex = str(sys.argv[1])
+if ex == "1":
+    name = "teleports"
+else:
+    name = "shops2"
 
 for n in range(0,34):
-    inputFile = f'teleports/input{n}.txt'
-    outputFile = f'teleports/output{n}.txt'
+    inputFile = f'{name}/input{n}.txt'
+    outputFile = f'{name}/output{n}.txt'
     f = open(outputFile)
     output = f.read()
-    command = "./1 < " + inputFile
+    command = f'./{ex} < ' + inputFile
     process = Popen(command, shell=True, stdout=PIPE, stderr=PIPE)
     producedOutput, err = process.communicate()
 
