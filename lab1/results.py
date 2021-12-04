@@ -7,7 +7,7 @@ if ex == "1":
 else:
     name = "shops2"
 
-for n in range(0,34):
+for n in range(1,26):
     inputFile = f'{name}/input{n}.txt'
     outputFile = f'{name}/output{n}.txt'
     f = open(outputFile)

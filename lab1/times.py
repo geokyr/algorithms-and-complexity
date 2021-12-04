@@ -7,7 +7,7 @@ if ex == "1":
 else:
     name = "shops2"
 
-for i in range(1, 34):
+for i in range(1, 26):
     f = open(f'{name}/output' + str(i) + '.txt', 'r')
 
     print("Testing case:", i)
