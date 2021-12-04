@@ -4,10 +4,14 @@ import sys
 ex = str(sys.argv[1])
 if ex == "1":
     name = "teleports"
+    start = 0
+    end = 34
 else:
     name = "shops2"
+    start = 1
+    end = 26
 
-for n in range(1,26):
+for n in range(start, end):
     inputFile = f'{name}/input{n}.txt'
     outputFile = f'{name}/output{n}.txt'
     f = open(outputFile)

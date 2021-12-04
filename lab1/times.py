@@ -4,10 +4,14 @@ import sys
 ex = str(sys.argv[1])
 if ex == "1":
     name = "teleports"
+    start = 0
+    end = 34
 else:
     name = "shops2"
+    start = 1
+    end = 26
 
-for i in range(1, 26):
+for i in range(start, end):
     f = open(f'{name}/output' + str(i) + '.txt', 'r')
 
     print("Testing case:", i)
