@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "*.8085": "i8080-macroasm",
-        "string_view": "cpp",
-        "ostream": "cpp"
-    }
-}
