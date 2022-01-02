@@ -2,9 +2,9 @@ import os
 import sys
 
 ex = str(sys.argv[1])
-if ex == "teleports":
+if ex == "bazaar":
     start = 0
-    end = 34
+    end = 20
 else:
     start = 1
     end = 26
