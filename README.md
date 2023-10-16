@@ -19,7 +19,7 @@ There were 3 analytical assignments for submission and in total the following co
 
 ## Lab Assignments
 
-There were 3 lab assignments, requiring the implementation and submission of an algorithm in C++, with memory and time constraints. The following concepts were covered:
+There were 3 lab assignments, requiring the implementation and submission of a set of algorithmic problems to be solved in C++, with memory and time constraints. The following concepts were covered:
 
 - Data structures
 - Disjoint Sets and Union-Find
