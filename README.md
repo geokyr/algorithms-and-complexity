@@ -1,6 +1,6 @@
 # ntua-algorithms-and-complexity
 
-Analytic and Lab Assignments for the [Algorithms and Complexity](https://www.ece.ntua.gr/en/undergraduate/courses/3105) course, during the 7th semester of the School of Electrical and Computer Engineering at the National Technical University of Athens.
+Analytical and Lab Assignments for the [Algorithms and Complexity](https://www.ece.ntua.gr/en/undergraduate/courses/3105) course, during the 7th semester of the School of Electrical and Computer Engineering at the National Technical University of Athens.
 
 ## Analytical Assignments
 
