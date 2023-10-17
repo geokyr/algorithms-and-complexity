@@ -8,7 +8,7 @@ There were 3 analytical assignments for submission and in total the following co
 
 - Asymptotic Notation
 - Recursive Relations
-- Sorting
+- Sorting Algorithms
 - Greedy Algorithms
 - Dynamic Programming
 - Graph Algorithms
