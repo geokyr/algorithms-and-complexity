@@ -21,7 +21,7 @@ There were 3 analytical assignments for submission and in total the following co
 
 There were 3 lab assignments, requiring the implementation and submission of a set of algorithmic problems to be solved in C++, with memory and time constraints. The following concepts were covered:
 
-- Data structures
+- Data Structures
 - Disjoint Sets and Union-Find
 - Binary Search
 - Combinatorial Optimization
