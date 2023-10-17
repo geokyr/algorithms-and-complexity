@@ -4,7 +4,7 @@ Analytical and Lab Assignments for the [Algorithms and Complexity](https://www.e
 
 ## Analytical Assignments
 
-There were 3 Analytical Assignments for submission and in total the following concepts were covered:
+There were 3 Analytical Assignments for submission and in total the following topics were covered:
 
 - Asymptotic Notation
 - Recursive Relations
@@ -19,7 +19,7 @@ There were 3 Analytical Assignments for submission and in total the following co
 
 ## Lab Assignments
 
-There were 3 Lab Assignments, requiring the implementation and submission of a set of algorithmic problems in C++, with memory and time constraints. The following concepts were covered:
+There were 3 Lab Assignments, requiring the implementation and submission of a set of algorithmic problems in C++, with memory and time constraints. These problems were solved using the following concepts:
 
 - Data Structures
 - Disjoint Sets and Union-Find
